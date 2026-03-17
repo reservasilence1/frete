@@ -119,16 +119,16 @@ const AlertScreen = () => {
         </p>
 
         {/* Header Alert */}
-        <div className="rounded-xl border border-brand-warm/30 bg-white p-6 shadow-sm">
+        <div className="rounded-xl border-2 border-destructive/40 bg-destructive/5 p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
-            <AlertTriangle className="h-6 w-6 text-brand-warm" />
-            <h1 className="text-lg font-bold text-brand-brown uppercase tracking-wide">
-              Aviso de Processamento Logístico
+            <AlertCircle className="h-7 w-7 text-destructive" />
+            <h1 className="text-lg font-bold text-destructive uppercase tracking-wide">
+              🚨 Aviso de Processamento Logístico
             </h1>
           </div>
           <p className="text-foreground text-sm leading-relaxed">
             Seu pedido foi concluído…{" "}
-            <span className="font-bold text-brand-brown">
+            <span className="font-bold text-destructive text-base">
               mas NÃO está liberado para envio imediato.
             </span>
           </p>
