@@ -208,18 +208,18 @@ const AlertScreen = () => {
         </div>
 
         {/* Urgency */}
-        <div className="rounded-xl bg-brand-warm/5 border border-brand-warm/20 p-4 space-y-2">
+        <div className="rounded-xl bg-destructive/5 border border-destructive/30 p-4 space-y-2">
           <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-brand-warm" />
-            <p className="text-sm font-semibold text-brand-brown">
-              Essa liberação só pode ser feita AGORA, antes do pedido entrar
+            <Clock className="h-4 w-4 text-destructive" />
+            <p className="text-sm font-semibold text-destructive">
+              ⚠️ Essa liberação só pode ser feita AGORA, antes do pedido entrar
               definitivamente na fila padrão.
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-brand-warm" />
-            <p className="text-xs text-muted-foreground">
-              Após sair dessa tela, não será possível alterar o envio.
+            <Shield className="h-4 w-4 text-destructive/70" />
+            <p className="text-xs text-destructive/80 font-medium">
+              🔒 Após sair dessa tela, não será possível alterar o envio.
             </p>
           </div>
         </div>
