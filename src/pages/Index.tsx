@@ -119,42 +119,42 @@ const AlertScreen = () => {
         </p>
 
         {/* Header Alert */}
-        <div className="rounded-xl border border-brand-warm/30 bg-white p-6 shadow-sm">
+        <div className="rounded-xl border-2 border-destructive/40 bg-destructive/5 p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-3">
-            <AlertTriangle className="h-6 w-6 text-brand-warm" />
-            <h1 className="text-lg font-bold text-brand-brown uppercase tracking-wide">
-              Aviso de Processamento Logístico
+            <AlertCircle className="h-7 w-7 text-destructive" />
+            <h1 className="text-lg font-bold text-destructive uppercase tracking-wide">
+              🚨 Aviso de Processamento Logístico
             </h1>
           </div>
           <p className="text-foreground text-sm leading-relaxed">
             Seu pedido foi concluído…{" "}
-            <span className="font-bold text-brand-brown">
+            <span className="font-bold text-destructive text-base">
               mas NÃO está liberado para envio imediato.
             </span>
           </p>
         </div>
 
         {/* Alert Block */}
-        <div className="rounded-xl border border-brand-gold/30 bg-brand-gold/5 p-5 space-y-3">
+        <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 space-y-3">
           <div className="flex items-start gap-2">
-            <AlertTriangle className="h-5 w-5 text-brand-warm mt-0.5 shrink-0" />
-            <p className="text-sm text-brand-brown/80">
+            <AlertTriangle className="h-5 w-5 text-destructive mt-0.5 shrink-0" />
+            <p className="text-sm text-foreground/80">
               Devido ao alto volume de entregas na sua região, seu pedido foi
               automaticamente direcionado para:
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-lg bg-brand-gold/10 p-3 border border-brand-gold/20">
-            <Package className="h-5 w-5 text-brand-warm" />
-            <span className="font-bold text-brand-brown uppercase text-sm tracking-wide">
-              Modalidade Padrão (Fila Comum)
+          <div className="flex items-center gap-2 rounded-lg bg-destructive/10 p-3 border border-destructive/30">
+            <Package className="h-5 w-5 text-destructive" />
+            <span className="font-bold text-destructive uppercase text-sm tracking-wide">
+              ⚠️ Modalidade Padrão (Fila Comum)
             </span>
           </div>
         </div>
 
         {/* Consequences */}
-        <div className="rounded-xl border border-destructive/20 bg-white p-5 space-y-3">
-          <h2 className="font-bold text-brand-brown text-sm">
-            Isso pode resultar em:
+        <div className="rounded-xl border border-destructive/30 bg-white p-5 space-y-3">
+          <h2 className="font-bold text-destructive text-sm uppercase tracking-wide">
+            ❌ Isso pode resultar em:
           </h2>
           <ul className="space-y-2.5">
             {[
@@ -208,18 +208,18 @@ const AlertScreen = () => {
         </div>
 
         {/* Urgency */}
-        <div className="rounded-xl bg-brand-warm/5 border border-brand-warm/20 p-4 space-y-2">
+        <div className="rounded-xl bg-destructive/5 border border-destructive/30 p-4 space-y-2">
           <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-brand-warm" />
-            <p className="text-sm font-semibold text-brand-brown">
-              Essa liberação só pode ser feita AGORA, antes do pedido entrar
+            <Clock className="h-4 w-4 text-destructive" />
+            <p className="text-sm font-semibold text-destructive">
+              ⚠️ Essa liberação só pode ser feita AGORA, antes do pedido entrar
               definitivamente na fila padrão.
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Shield className="h-4 w-4 text-brand-warm" />
-            <p className="text-xs text-muted-foreground">
-              Após sair dessa tela, não será possível alterar o envio.
+            <Shield className="h-4 w-4 text-destructive/70" />
+            <p className="text-xs text-destructive/80 font-medium">
+              🔒 Após sair dessa tela, não será possível alterar o envio.
             </p>
           </div>
         </div>
