@@ -152,9 +152,9 @@ const AlertScreen = () => {
         </div>
 
         {/* Consequences */}
-        <div className="rounded-xl border border-destructive/20 bg-white p-5 space-y-3">
-          <h2 className="font-bold text-brand-brown text-sm">
-            Isso pode resultar em:
+        <div className="rounded-xl border border-destructive/30 bg-white p-5 space-y-3">
+          <h2 className="font-bold text-destructive text-sm uppercase tracking-wide">
+            ❌ Isso pode resultar em:
           </h2>
           <ul className="space-y-2.5">
             {[
