@@ -36,12 +36,14 @@ All colors MUST be HSL.
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --brand-gold: 36 70% 52%;
     --brand-brown: 25 30% 25%;
     --brand-warm: 30 50% 45%;
     --brand-cream: 40 30% 96%;
+    --brand-green: 145 63% 42%;
+    --brand-green-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
 
