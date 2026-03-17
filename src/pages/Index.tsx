@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Check, AlertTriangle, AlertCircle, Loader2, Package, Rocket, Shield, Clock, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
 interface Step {
@@ -22,13 +21,13 @@ const steps: Step[] = [
 const StepIcon = ({ type }: { type: Step["icon"] }) => {
   switch (type) {
     case "loading":
-      return <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />;
+      return <Loader2 className="h-5 w-5 animate-spin text-brand-gold" />;
     case "check":
-      return <Check className="h-5 w-5 text-emerald-500" />;
+      return <Check className="h-5 w-5 text-brand-gold" />;
     case "warning":
-      return <AlertTriangle className="h-5 w-5 text-amber-500" />;
+      return <AlertTriangle className="h-5 w-5 text-brand-warm" />;
     case "alert":
-      return <AlertCircle className="h-5 w-5 text-red-500" />;
+      return <AlertCircle className="h-5 w-5 text-destructive" />;
   }
 };
 
@@ -44,7 +43,6 @@ const ProcessingScreen = ({ onTransition }: { onTransition: () => void }) => {
       }, step.delay);
     });
 
-    // Transition after last step
     setTimeout(() => {
       onTransition();
     }, 12500);
@@ -52,10 +50,14 @@ const ProcessingScreen = ({ onTransition }: { onTransition: () => void }) => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md space-y-6">
+      <div className="w-full max-w-md space-y-8">
+        <div className="text-center space-y-1">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">✦ Loja Rosa Mistério</p>
+        </div>
+
         <div className="space-y-2">
-          <Progress value={progress} className="h-2" />
-          <p className="text-xs text-muted-foreground text-right">
+          <Progress value={progress} className="h-1.5 bg-secondary [&>div]:bg-brand-gold" />
+          <p className="text-xs text-muted-foreground text-right font-medium">
             {Math.round(progress)}%
           </p>
         </div>
@@ -74,11 +76,11 @@ const ProcessingScreen = ({ onTransition }: { onTransition: () => void }) => {
                 }
               />
               <span
-                className={`text-sm font-medium ${
+                className={`text-sm ${
                   step.icon === "alert"
-                    ? "text-red-600"
+                    ? "text-destructive font-semibold"
                     : step.icon === "warning"
-                    ? "text-amber-600"
+                    ? "text-brand-warm font-medium"
                     : "text-foreground"
                 }`}
               >
@@ -102,62 +104,67 @@ const AlertScreen = () => {
 
   if (!visible) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-red-50">
-        <Loader2 className="h-8 w-8 animate-spin text-red-500" />
+      <div className="flex min-h-screen items-center justify-center bg-brand-cream">
+        <Loader2 className="h-8 w-8 animate-spin text-brand-gold" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-red-50 p-4 md:p-8">
-      <div className="mx-auto max-w-2xl space-y-6 animate-fade-in">
+    <div className="min-h-screen bg-brand-cream p-4 md:p-8">
+      <div className="mx-auto max-w-xl space-y-5 animate-fade-in py-4">
+        {/* Store name */}
+        <p className="text-center text-xs uppercase tracking-widest text-brand-warm">
+          ✦ Loja Rosa Mistério
+        </p>
+
         {/* Header Alert */}
-        <div className="rounded-lg border-2 border-red-500 bg-white p-6 shadow-lg">
-          <div className="flex items-center gap-3 mb-4">
-            <AlertTriangle className="h-7 w-7 text-red-600" />
-            <h1 className="text-xl font-bold text-red-700 uppercase tracking-wide">
+        <div className="rounded-xl border border-brand-warm/30 bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-3 mb-3">
+            <AlertTriangle className="h-6 w-6 text-brand-warm" />
+            <h1 className="text-lg font-bold text-brand-brown uppercase tracking-wide">
               Aviso de Processamento Logístico
             </h1>
           </div>
-          <p className="text-foreground text-base leading-relaxed">
+          <p className="text-foreground text-sm leading-relaxed">
             Seu pedido foi concluído…{" "}
-            <span className="font-bold text-red-700">
+            <span className="font-bold text-brand-brown">
               mas NÃO está liberado para envio imediato.
             </span>
           </p>
         </div>
 
         {/* Alert Block */}
-        <div className="rounded-lg border border-amber-400 bg-amber-50 p-5 space-y-3">
+        <div className="rounded-xl border border-brand-gold/30 bg-brand-gold/5 p-5 space-y-3">
           <div className="flex items-start gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
-            <p className="text-sm text-amber-900">
+            <AlertTriangle className="h-5 w-5 text-brand-warm mt-0.5 shrink-0" />
+            <p className="text-sm text-brand-brown/80">
               Devido ao alto volume de entregas na sua região, seu pedido foi
               automaticamente direcionado para:
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-md bg-amber-100 p-3">
-            <Package className="h-5 w-5 text-amber-700" />
-            <span className="font-bold text-amber-800 uppercase text-sm tracking-wide">
+          <div className="flex items-center gap-2 rounded-lg bg-brand-gold/10 p-3 border border-brand-gold/20">
+            <Package className="h-5 w-5 text-brand-warm" />
+            <span className="font-bold text-brand-brown uppercase text-sm tracking-wide">
               Modalidade Padrão (Fila Comum)
             </span>
           </div>
         </div>
 
         {/* Consequences */}
-        <div className="rounded-lg border border-red-300 bg-white p-5 space-y-3">
-          <h2 className="font-bold text-red-700 text-base">
+        <div className="rounded-xl border border-destructive/20 bg-white p-5 space-y-3">
+          <h2 className="font-bold text-brand-brown text-sm">
             Isso pode resultar em:
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {[
               "Atrasos de até 20 dias ou mais",
               "Reprocessamento do envio",
               "Mudança de rota logística",
               "Risco de retenção temporária",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-red-800">
-                <X className="h-4 w-4 text-red-500 shrink-0" />
+              <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/80">
+                <X className="h-4 w-4 text-destructive shrink-0" />
                 {item}
               </li>
             ))}
@@ -165,35 +172,35 @@ const AlertScreen = () => {
         </div>
 
         {/* Belief Break */}
-        <div className="rounded-lg bg-muted p-4">
-          <p className="text-sm text-muted-foreground italic leading-relaxed">
+        <div className="rounded-xl bg-secondary p-4">
+          <p className="text-sm text-muted-foreground italic leading-relaxed text-center">
             Muitos pedidos nessa modalidade enfrentam atrasos porque seguem o
             fluxo padrão sem prioridade.
           </p>
         </div>
 
         {/* Solution */}
-        <div className="rounded-lg border-2 border-emerald-500 bg-emerald-50 p-5 space-y-4">
+        <div className="rounded-xl border-2 border-brand-gold bg-white p-5 space-y-4 shadow-sm">
           <div className="flex items-center gap-2">
-            <Rocket className="h-5 w-5 text-emerald-600" />
-            <h2 className="font-bold text-emerald-800 text-base uppercase tracking-wide">
+            <Rocket className="h-5 w-5 text-brand-gold" />
+            <h2 className="font-bold text-brand-brown text-sm uppercase tracking-wide">
               Liberação Prioritária (Envio Expresso)
             </h2>
           </div>
 
-          <p className="text-sm text-emerald-900">
+          <p className="text-sm text-foreground/70">
             Para evitar isso, você pode ativar agora:
           </p>
 
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {[
               "Seu pedido sai da fila comum imediatamente",
               "Envio antecipado com prioridade logística",
               "Redução drástica no prazo de entrega",
               "Evita gargalos e retenções",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-emerald-800">
-                <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+              <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/80">
+                <Check className="h-4 w-4 text-brand-gold shrink-0" />
                 {item}
               </li>
             ))}
@@ -201,17 +208,17 @@ const AlertScreen = () => {
         </div>
 
         {/* Urgency */}
-        <div className="rounded-lg bg-red-100 border border-red-300 p-4 space-y-2">
+        <div className="rounded-xl bg-brand-warm/5 border border-brand-warm/20 p-4 space-y-2">
           <div className="flex items-center gap-2">
-            <Clock className="h-5 w-5 text-red-600" />
-            <p className="text-sm font-bold text-red-700">
+            <Clock className="h-4 w-4 text-brand-warm" />
+            <p className="text-sm font-semibold text-brand-brown">
               Essa liberação só pode ser feita AGORA, antes do pedido entrar
               definitivamente na fila padrão.
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-red-600" />
-            <p className="text-xs text-red-600">
+            <Shield className="h-4 w-4 text-brand-warm" />
+            <p className="text-xs text-muted-foreground">
               Após sair dessa tela, não será possível alterar o envio.
             </p>
           </div>
@@ -219,15 +226,14 @@ const AlertScreen = () => {
 
         {/* CTAs */}
         <div className="space-y-3 pt-2">
-          <Button
-            className="w-full h-14 text-base font-bold uppercase tracking-wide bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg"
-            size="lg"
+          <button
+            className="w-full h-14 rounded-xl text-base font-bold uppercase tracking-wide bg-brand-gold hover:bg-brand-gold/90 text-white shadow-md flex items-center justify-center gap-2 transition-colors"
           >
-            <Rocket className="h-5 w-5 mr-2" />
-            Liberar envio prioritário por R$14,90
-          </Button>
+            <Rocket className="h-5 w-5" />
+            Liberar envio prioritário — R$14,90
+          </button>
 
-          <button className="w-full text-center text-xs text-muted-foreground underline hover:text-foreground transition-colors py-2">
+          <button className="w-full text-center text-xs text-muted-foreground hover:text-foreground transition-colors py-2">
             Continuar sem prioridade (assumir risco de atraso)
           </button>
         </div>
