@@ -135,18 +135,18 @@ const AlertScreen = () => {
         </div>
 
         {/* Alert Block */}
-        <div className="rounded-xl border border-brand-gold/30 bg-brand-gold/5 p-5 space-y-3">
+        <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-5 space-y-3">
           <div className="flex items-start gap-2">
-            <AlertTriangle className="h-5 w-5 text-brand-warm mt-0.5 shrink-0" />
-            <p className="text-sm text-brand-brown/80">
+            <AlertTriangle className="h-5 w-5 text-destructive mt-0.5 shrink-0" />
+            <p className="text-sm text-foreground/80">
               Devido ao alto volume de entregas na sua região, seu pedido foi
               automaticamente direcionado para:
             </p>
           </div>
-          <div className="flex items-center gap-2 rounded-lg bg-brand-gold/10 p-3 border border-brand-gold/20">
-            <Package className="h-5 w-5 text-brand-warm" />
-            <span className="font-bold text-brand-brown uppercase text-sm tracking-wide">
-              Modalidade Padrão (Fila Comum)
+          <div className="flex items-center gap-2 rounded-lg bg-destructive/10 p-3 border border-destructive/30">
+            <Package className="h-5 w-5 text-destructive" />
+            <span className="font-bold text-destructive uppercase text-sm tracking-wide">
+              ⚠️ Modalidade Padrão (Fila Comum)
             </span>
           </div>
         </div>
