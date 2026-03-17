@@ -38,6 +38,11 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    --brand-gold: 36 70% 52%;
+    --brand-brown: 25 30% 25%;
+    --brand-warm: 30 50% 45%;
+    --brand-cream: 40 30% 96%;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
