@@ -1,8 +1,10 @@
 import { Check, Clock, Package, Shield } from "lucide-react";
+import StoreHeader from "@/components/StoreHeader";
 
 const ConfirmationScreen = ({ onContinue }: { onContinue: () => void }) => {
   return (
-    <div className="min-h-screen bg-background p-4 flex items-center justify-center">
+    <div className="min-h-screen bg-background p-4 pt-16 flex items-center justify-center">
+      <StoreHeader />
       <div className="w-full max-w-sm space-y-6 animate-fade-in">
         {/* Success header */}
         <div className="text-center space-y-3">

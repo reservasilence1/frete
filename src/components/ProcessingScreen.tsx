@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Check, Loader2, Package, MapPin, ClipboardCheck, Truck } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import StoreHeader from "@/components/StoreHeader";
 
 const stages = [
   { label: "Verificando estoque...", threshold: 30, icon: Package },
@@ -34,7 +35,8 @@ const ProcessingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const completedStages = stages.filter((s) => progress >= s.threshold);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+    <div className="flex min-h-screen items-center justify-center bg-background p-4 pt-16">
+      <StoreHeader />
       <div className="w-full max-w-sm space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
