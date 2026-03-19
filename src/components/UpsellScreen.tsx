@@ -144,20 +144,20 @@ const UpsellScreen = () => {
 
         {/* PREÇO */}
         <div className="text-center py-2 space-y-1">
-          <p className="text-base text-muted-foreground">Por apenas</p>
-          <p className="text-4xl font-extrabold text-primary">R$14,90</p>
+          <p className="text-base text-muted-foreground">De <span className="line-through">R$49,90</span> por</p>
+          <p className="text-4xl font-extrabold text-primary">R$24,90</p>
           <p className="text-sm text-muted-foreground">Pagamento único • Sem mensalidade</p>
         </div>
 
         {/* CTAs */}
         <div className="space-y-3">
-          <button className="w-full h-14 rounded-2xl bg-brand-green text-brand-green-foreground font-bold text-base transition-all active:scale-[0.97] hover:opacity-90 flex items-center justify-center gap-2 shadow-lg shadow-brand-green/25">
+          <a href="https://pay.rosamisterio.site/checkout/87c775b8-4935-4368-8584-c4c64a2732a7" className="w-full h-14 rounded-2xl bg-brand-green text-brand-green-foreground font-bold text-base transition-all active:scale-[0.97] hover:opacity-90 flex items-center justify-center gap-2 shadow-lg shadow-brand-green/25 no-underline">
             <Zap className="h-5 w-5" />
             Quero receber em até 2 dias
-          </button>
-          <button className="w-full h-12 rounded-2xl bg-secondary text-foreground font-semibold text-sm transition-all active:scale-[0.97] hover:opacity-90 shadow-sm border border-border">
+          </a>
+          <a href="https://rosamisterio.shop" className="w-full h-12 rounded-2xl bg-secondary text-foreground font-semibold text-sm transition-all active:scale-[0.97] hover:opacity-90 shadow-sm border border-border flex items-center justify-center no-underline">
             Continuar com envio padrão (15–20 dias)
-          </button>
+          </a>
         </div>
 
         {/* CONFIANÇA */}
