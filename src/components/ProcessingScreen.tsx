@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, Package, MapPin, ClipboardCheck, Truck } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
 const stages = [
-  { label: "Verificando estoque...", threshold: 30 },
-  { label: "Validando endereço de entrega...", threshold: 60 },
-  { label: "Confirmando pedido...", threshold: 90 },
-  { label: "Preparando dados de envio...", threshold: 100 },
+  { label: "Verificando estoque...", threshold: 30, icon: Package },
+  { label: "Validando endereço de entrega...", threshold: 60, icon: MapPin },
+  { label: "Confirmando pedido...", threshold: 90, icon: ClipboardCheck },
+  { label: "Preparando dados de envio...", threshold: 100, icon: Truck },
 ];
 
 const ProcessingScreen = ({ onComplete }: { onComplete: () => void }) => {
@@ -36,53 +36,63 @@ const ProcessingScreen = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-sm space-y-8">
-        <div className="text-center space-y-2">
-          <Loader2 className="h-10 w-10 animate-spin text-primary mx-auto" />
-          <h1 className="text-lg font-bold text-foreground">
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          </div>
+          <h1 className="text-lg font-extrabold text-foreground">
             Processando seu pedido...
           </h1>
-        </div>
-
-        <div className="space-y-3">
-          <Progress
-            value={progress}
-            className="h-2.5 bg-secondary [&>div]:bg-primary [&>div]:rounded-full [&>div]:transition-all [&>div]:duration-100"
-          />
-          <p className="text-right text-xs font-semibold text-muted-foreground">
-            {Math.round(progress)}%
+          <p className="text-sm text-muted-foreground">
+            Aguarde enquanto preparamos tudo para você
           </p>
         </div>
 
+        {/* Progress */}
+        <div className="space-y-2">
+          <Progress
+            value={progress}
+            className="h-3 bg-secondary rounded-full [&>div]:bg-primary [&>div]:rounded-full [&>div]:transition-all [&>div]:duration-100"
+          />
+          <div className="flex justify-between">
+            <p className="text-xs text-muted-foreground">Processando...</p>
+            <p className="text-xs font-bold text-primary">
+              {Math.round(progress)}%
+            </p>
+          </div>
+        </div>
+
+        {/* Stages */}
         <div className="space-y-3">
           {stages.map((stage, i) => {
             const done = completedStages.includes(stage);
             const isCurrent =
-              !done &&
-              (i === 0 || stages[i - 1].threshold <= progress);
+              !done && (i === 0 || stages[i - 1].threshold <= progress);
+            const Icon = stage.icon;
 
             if (!done && !isCurrent) return null;
 
             return (
               <div
                 key={stage.label}
-                className="flex items-center gap-3 animate-fade-in"
+                className="flex items-center gap-3 animate-fade-in rounded-xl border border-border bg-card p-3 shadow-sm"
               >
                 {done ? (
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-green/10">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-green/10">
                     <Check className="h-4 w-4 text-brand-green" />
                   </div>
                 ) : (
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-secondary">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary">
                     <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                   </div>
                 )}
-                <span
-                  className={`text-sm ${
-                    done ? "text-foreground" : "text-muted-foreground"
-                  }`}
-                >
-                  {stage.label}
-                </span>
+                <div className="flex-1">
+                  <span className={`text-sm font-medium ${done ? "text-foreground" : "text-muted-foreground"}`}>
+                    {stage.label}
+                  </span>
+                </div>
+                <Icon className={`h-4 w-4 ${done ? "text-brand-green" : "text-muted-foreground/40"}`} />
               </div>
             );
           })}
