@@ -29,53 +29,52 @@ const UpsellScreen = () => {
       <StoreHeader />
       <div className="mx-auto max-w-sm space-y-6 animate-slide-up">
 
-        {/* ALERTA — texto corrido com imagem */}
+        {/* ALERTA */}
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <img src={alertShield} alt="Alerta" className="h-10 w-10 object-contain" />
-            <h2 className="text-base font-extrabold text-brand-red flex items-center gap-1.5">
+            <h2 className="text-base font-extrabold text-primary flex items-center gap-1.5">
               <AlertTriangle className="h-4 w-4" />
               Alta demanda na sua região
             </h2>
           </div>
           <p className="text-sm text-foreground/80 leading-relaxed">
             Seu pedido foi confirmado, mas entrou automaticamente na{" "}
-            <span className="font-bold text-brand-red">fila padrão de envio</span>. 
+            <span className="font-bold text-primary">fila padrão de envio</span>. 
             Isso significa que ele será processado junto com todos os outros pedidos da sua região, 
             o que pode resultar em atrasos consideráveis.
           </p>
         </div>
 
-        {/* SEPARADOR */}
         <hr className="border-border" />
 
-        {/* FILA — badge/bloco visual */}
+        {/* FILA */}
         <div className="rounded-2xl border border-border bg-card p-5 space-y-3 shadow-sm">
           <div className="flex items-center justify-between">
             <span className="text-sm font-bold text-foreground">
               📦 {queueCount.toLocaleString("pt-BR")} pedidos na frente
             </span>
-            <span className="text-xs font-semibold text-brand-red bg-brand-red/10 px-2.5 py-1 rounded-full">
+            <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
               Fila alta
             </span>
           </div>
           <div className="relative h-3.5 w-full rounded-full bg-secondary overflow-hidden">
             <div
-              className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-brand-red/60 to-brand-red"
+              className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-primary/60 to-primary"
               style={{ width: "15%" }}
             />
             <div
-              className={`absolute left-[13%] top-0 h-full w-3 rounded-full bg-brand-red transition-opacity duration-500 ${
+              className={`absolute left-[13%] top-0 h-full w-3 rounded-full bg-primary transition-opacity duration-500 ${
                 pulse ? "opacity-100" : "opacity-40"
               }`}
             />
           </div>
           <p className="text-xs text-foreground/60">
-            Isso pode aumentar <span className="text-brand-red font-bold">significativamente</span> o prazo de entrega.
+            Isso pode aumentar <span className="text-primary font-bold">significativamente</span> o prazo de entrega.
           </p>
         </div>
 
-        {/* SOLUÇÃO — texto corrido */}
+        {/* SOLUÇÃO */}
         <div className="space-y-2">
           <h2 className="text-base font-extrabold text-foreground">
             ⚡ Receba em até 2 dias úteis
@@ -87,7 +86,7 @@ const UpsellScreen = () => {
           </p>
         </div>
 
-        {/* ENVIO EXPRESSO — badge/bloco */}
+        {/* ENVIO EXPRESSO */}
         <div className="rounded-2xl border-2 border-primary bg-card p-5 space-y-4 shadow-md relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-bl-xl">
             RECOMENDADO
@@ -115,7 +114,7 @@ const UpsellScreen = () => {
           </ul>
         </div>
 
-        {/* RASTREAMENTO — texto corrido */}
+        {/* RASTREAMENTO */}
         <div className="space-y-2">
           <h2 className="text-sm font-extrabold text-foreground">
             📦 Acompanhamento completo do seu pedido
@@ -131,7 +130,7 @@ const UpsellScreen = () => {
           </p>
         </div>
 
-        {/* BÔNUS — badge/bloco */}
+        {/* BÔNUS */}
         <div className="rounded-2xl border border-brand-green/30 bg-brand-green/5 p-4 space-y-2">
           <div className="flex items-center gap-3">
             <img src={giftBox} alt="Bônus" className="h-10 w-10 object-contain" />
