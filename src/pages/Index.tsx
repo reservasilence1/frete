@@ -20,6 +20,8 @@ const Index = () => {
       return <ConfirmationScreen onContinue={goToUpsell} />;
     case "upsell":
       return <UpsellScreen />;
+    default:
+      return null;
   }
 };
 
