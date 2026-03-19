@@ -8,9 +8,6 @@ const StoreHeader = () => {
         <span className="text-base font-extrabold text-primary tracking-wide">
           Rosa Mistério
         </span>
-        <span className="bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full">
-          70% OFF
-        </span>
       </div>
     </header>
   );
