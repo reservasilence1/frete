@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import {
-  AlertTriangle,
   Check,
   Zap,
   Lock,
   CreditCard,
   Package,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 import StoreHeader from "@/components/StoreHeader";
 import alertShield from "@/assets/alert-shield.png";
