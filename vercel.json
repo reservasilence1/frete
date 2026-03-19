@@ -1,7 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/frete/(.*)",
+      "source": "/frete",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/frete/:path*",
       "destination": "/index.html"
     }
   ]
