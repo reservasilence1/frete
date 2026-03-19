@@ -144,8 +144,8 @@ const UpsellScreen = () => {
 
         {/* PREÇO */}
         <div className="text-center py-2 space-y-1">
-          <p className="text-base text-muted-foreground">Por apenas</p>
-          <p className="text-4xl font-extrabold text-primary">R$14,90</p>
+          <p className="text-base text-muted-foreground">De <span className="line-through">R$49,90</span> por</p>
+          <p className="text-4xl font-extrabold text-primary">R$24,90</p>
           <p className="text-sm text-muted-foreground">Pagamento único • Sem mensalidade</p>
         </div>
 
