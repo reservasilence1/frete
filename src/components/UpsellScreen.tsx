@@ -30,7 +30,8 @@ const UpsellScreen = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-4 pb-10">
+    <div className="min-h-screen bg-background p-4 pt-16 pb-10">
+      <StoreHeader />
       <div className="mx-auto max-w-sm space-y-5 animate-slide-up">
 
         {/* BLOCO 1 — ALERTA com imagem */}
