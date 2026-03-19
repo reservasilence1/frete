@@ -117,16 +117,15 @@ const UpsellScreen = () => {
           <h2 className="text-lg font-extrabold text-foreground">
             📦 Acompanhamento completo do seu pedido
           </h2>
-          <p className="text-base text-foreground/80 leading-relaxed">
-            Ao ativar o envio prioritário, você recebe o{" "}
-            <span className="font-extrabold text-brand-green underline">código de rastreio dos Correios</span>, 
-            atualizações em tempo real do envio e acompanhamento completo até a entrega.
-          </p>
-          <div className="rounded-xl bg-brand-green/5 border border-brand-green/20 p-3">
-            <p className="text-sm text-foreground/80 leading-relaxed">
-              No envio padrão, o rastreio pode levar <span className="font-bold text-foreground">dias para ser liberado</span>. 
-              Com o envio prioritário, ele é gerado <span className="font-bold text-brand-green">mais rapidamente</span> após a postagem. 
-              Você poderá acompanhar cada etapa do envio com total segurança.
+          <div>
+            <Badge className="bg-brand-green text-brand-green-foreground text-sm px-3 py-1 mb-2 hover:bg-brand-green/90">
+              Código de Rastreio dos Correios
+            </Badge>
+            <p className="text-base text-foreground/80 leading-relaxed mt-2">
+              Ao ativar o envio prioritário, você recebe atualizações em tempo real do envio 
+              e acompanhamento completo até a entrega. No envio padrão, o rastreio pode levar 
+              dias para ser liberado. Com o envio prioritário, ele é gerado mais rapidamente 
+              após a postagem — você poderá acompanhar cada etapa com total segurança.
             </p>
           </div>
         </div>
