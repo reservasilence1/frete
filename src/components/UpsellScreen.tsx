@@ -134,7 +134,7 @@ const UpsellScreen = () => {
         <div className="rounded-2xl border border-brand-green/30 bg-brand-green/5 p-4 space-y-2">
           <div className="flex items-center gap-3">
             <img src={giftBox} alt="Bônus" className="h-10 w-10 object-contain" />
-            <h2 className="text-base font-extrabold text-foreground">🎁 Bônus exclusivo</h2>
+            <h2 className="text-base font-extrabold text-foreground">Bônus exclusivo</h2>
           </div>
           <p className="text-base text-foreground/80">
             Garantia estendida de <span className="font-extrabold text-foreground">30 dias</span>{" "}
