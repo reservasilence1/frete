@@ -1,11 +1,16 @@
-import { Store } from "lucide-react";
+import logo from "@/assets/logo-rosa-misterio.png";
 
 const StoreHeader = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground shadow-md">
-      <div className="mx-auto max-w-sm flex items-center justify-center gap-2 h-12">
-        <Store className="h-4 w-4" />
-        <span className="text-sm font-bold tracking-wide">Loja Rosa Mistério</span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-sm border-b border-border shadow-sm">
+      <div className="mx-auto max-w-sm flex items-center justify-center gap-2.5 h-14">
+        <img src={logo} alt="Rosa Mistério" className="h-9 w-9 rounded-full object-contain" />
+        <span className="text-base font-extrabold text-primary tracking-wide">
+          Rosa Mistério
+        </span>
+        <span className="bg-primary text-primary-foreground text-[10px] font-bold px-2.5 py-1 rounded-full">
+          70% OFF
+        </span>
       </div>
     </header>
   );
