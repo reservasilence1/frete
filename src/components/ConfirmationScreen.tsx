@@ -1,4 +1,5 @@
 import { Check, Clock, Package, Shield } from "lucide-react";
+import StoreHeader from "@/components/StoreHeader";
 
 const ConfirmationScreen = ({ onContinue }: { onContinue: () => void }) => {
   return (
