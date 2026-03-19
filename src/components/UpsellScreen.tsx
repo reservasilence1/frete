@@ -155,7 +155,7 @@ const UpsellScreen = () => {
             <Zap className="h-5 w-5" />
             Quero receber em até 2 dias
           </button>
-          <button className="w-full text-center text-xs text-muted-foreground hover:text-foreground/60 transition-colors py-2">
+          <button className="w-full h-12 rounded-2xl bg-secondary text-foreground font-semibold text-sm transition-all active:scale-[0.97] hover:opacity-90 shadow-sm border border-border">
             Continuar com envio padrão (15–20 dias)
           </button>
         </div>
