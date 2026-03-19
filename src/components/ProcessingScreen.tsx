@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Check, Loader2, Package, MapPin, ClipboardCheck, Truck } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import StoreHeader from "@/components/StoreHeader";
 
 const stages = [
   { label: "Verificando estoque...", threshold: 30, icon: Package },
